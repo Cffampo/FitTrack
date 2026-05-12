@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary: #a78bfa;
+  --primary-dark: #7c5cbf;
+  --bg: #0f0f0f;
+  --surface: #1a1a1a;
+  --surface2: #111111;
+  --text: #f5f5f5;
+  --muted: #888888;
+  --border: #2a2a2a;
+  --error: #ff4d4d;
+}
+
+body {
+  background: var(--bg);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+}
+
+header {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+header a:hover {
+  color: var(--text);
+}
+
+.pages {
+  max-width: 1200px;
+  padding: 32px 24px;
+  margin: 0 auto;
+}
+
+/* homepage */
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 60px;
+}
+
+.workout-details {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  margin: 12px 0;
+  padding: 18px 20px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.workout-details:hover {
+  border-color: var(--primary);
+}
+
+.workout-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.workout-details h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.workout-stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.workout-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--primary);
+  margin: 0;
+}
+
+.stat-unit {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 3px;
+}
+
+.workout-date {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.workout-delete {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 16px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.workout-delete:hover {
+  color: #ff4d4d;
+}
+
+/* new workout form */
+label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+input {
+  display: block;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  width: 100%;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--text);
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--primary);
+}
+
+input::placeholder {
+  color: #444;
+}
+
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #0f0f0f;
+  padding: 10px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+form button:hover {
+  opacity: 0.85;
+}
+
+div.error {
+  padding: 10px 14px;
+  background: rgba(255, 77, 77, 0.08);
+  border: 0.5px solid var(--error);
+  color: var(--error);
+  border-radius: 8px;
+  margin: 16px 0;
+  font-size: 13px;
+}
+
+input.error {
+  border: 1px solid var(--error);
+}
