@@ -217,6 +217,23 @@ nav a {
   margin-left: 16px;
 }
 
+nav button {
+  background: transparent;
+  color: var(--primary);
+  border: 0.5px solid var(--primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+nav button:hover {
+  background: rgba(167, 139, 250, 0.1);
+}
+
 /* auth forms */
 form.signup, form.login {
   max-width: 400px;
