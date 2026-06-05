@@ -228,6 +228,7 @@ nav button {
   font-size: 13px;
   font-weight: 600;
   transition: background 0.2s;
+  margin-left: 16px;
 }
 
 nav button:hover {
