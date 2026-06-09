@@ -58,10 +58,3 @@ npm run dev
 ```bash
 npm start
 ```
-
-## Roadmap
-- [ ] JWT Authentication
-- [ ] Progress tracking & analytics
-- [ ] AI-generated training insights
-- [ ] Docker containerization
-- [ ] Deployment
