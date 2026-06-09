@@ -16,6 +16,12 @@ app.use((req, res, next) => {
 })
 
 // Routes
+
+// default root route for quick browser/dev checks
+app.get('/', (req, res) => {
+    res.send('API running');
+});
+
 app.use('/api/workouts', workoutRoutes);
 app.use('/api/user', userRoutes);
 
