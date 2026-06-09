@@ -1,0 +1,20 @@
+services:
+  backend:
+    build: ./backend
+    container_name: fittrack_b
+    ports:
+      - "4000:4000"
+    env_file:
+    - ./backend/.env
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    
+
+  frontend:
+    build: ./frontend
+    container_name: fittrack_f
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
