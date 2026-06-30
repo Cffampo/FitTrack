@@ -1,10 +1,15 @@
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { Workout } from '../types'
 
 //date fns
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
 
-const WorkoutDetails = ({ workout }) => {
+interface WorkoutDetailsProps {
+    workout: Workout;
+}
+
+const WorkoutDetails = ({ workout }: WorkoutDetailsProps) => {
     const { dispatch } = useWorkoutsContext()
     const { user } = useAuthContext()
 
@@ -17,7 +22,7 @@ const WorkoutDetails = ({ workout }) => {
             method: 'DELETE',
             headers: {'Authorization': `Bearer ${user.token}`}
         })
-        const json = await response.json()
+        const json: Workout = await response.json()
 
         if (response.ok) {
             dispatch({ type: 'DELETE_WORKOUT', payload: json })

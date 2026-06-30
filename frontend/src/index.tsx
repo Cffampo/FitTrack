@@ -5,8 +5,7 @@ import App from './App';
 import { WorkoutContextProvider } from './context/WorkoutContext';
 import { AuthContextProvider } from './context/AuthContext';
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
@@ -16,4 +15,3 @@ root.render(
     </AuthContextProvider>
   </React.StrictMode>
 );
-

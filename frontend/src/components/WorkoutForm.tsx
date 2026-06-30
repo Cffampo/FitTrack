@@ -1,18 +1,19 @@
 import { useState } from "react"
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 import { useAuthContext } from '../hooks/useAuthContext'
+import { Workout } from "../types"
 
 const WorkoutForm = () => {
   const { dispatch } = useWorkoutsContext()
   const { user } = useAuthContext()
 
-  const [title, setTitle] = useState('')
-  const [load, setLoad] = useState('')
-  const [reps, setReps] = useState('')
-  const [error, setError] = useState(null)
-  const [emptyFields, setEmptyFields] = useState([])
+  const [title, setTitle] = useState<string>('')
+  const [load, setLoad] = useState<string>('')
+  const [reps, setReps] = useState<string>('')
+  const [error, setError] = useState<string | null>(null)
+  const [emptyFields, setEmptyFields] = useState<string[]>([])
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (!user) {
@@ -20,7 +21,7 @@ const WorkoutForm = () => {
       return
     }
 
-    const workout = {title, load, reps}
+    const workout = { title, load, reps }
 
     const response = await fetch('/api/workouts', {
       method: 'POST',
@@ -30,11 +31,11 @@ const WorkoutForm = () => {
         'Authorization': `Bearer ${user.token}`
       }
     })
-    const json = await response.json()
+    const json: Workout & { error?: string; emptyFields?: string[] } = await response.json()
 
     if (!response.ok) {
-      setError(json.error)
-      setEmptyFields(json.emptyFields)
+      setError(json.error ?? 'Something went wrong')
+      setEmptyFields(json.emptyFields ?? [])
     }
     if (response.ok) {
       setTitle('')
@@ -42,7 +43,7 @@ const WorkoutForm = () => {
       setReps('')
       setError(null)
       setEmptyFields([])
-      dispatch({type: 'CREATE_WORKOUT', payload: json})
+      dispatch({ type: 'CREATE_WORKOUT', payload: json })
     }
   }
 
