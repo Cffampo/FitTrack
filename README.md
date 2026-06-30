@@ -207,17 +207,10 @@ FitTrack uses:
 
 ## 🎯 Future Improvements
 
-- Edit existing workouts
-- Exercise categories
-- Workout history
-- Progress analytics
 - Charts and statistics
-- Dark mode
 - Profile management
 - Search and filtering
-- Pagination
 - Unit and integration testing
-- Docker support
 - Cloud deployment (Render/Vercel)
 
 ---
