@@ -1,158 +1,230 @@
 # FitTrack 🏋️
 
-A full-stack workout tracking application built with the MERN stack. Users can create, view, and delete workouts while tracking sets, reps, and load. The application features a React frontend, Express API, MongoDB database, JWT authentication, and Dockerized services managed with Docker Compose.
+A full-stack fitness tracking application built with the **MERN stack** and **TypeScript**. FitTrack allows users to securely create, manage, and track their workouts through a modern, responsive interface. The application features JWT authentication, protected API routes, and a RESTful backend powered by Express and MongoDB.
 
-<img width="2878" height="1373" alt="Screenshot 2026-05-11 202354" src="https://github.com/user-attachments/assets/b516aed2-4e29-4bf8-8c47-a514768da47b" />
+<img width="2878" height="1373" alt="FitTrack Screenshot" src="https://github.com/user-attachments/assets/b516aed2-4e29-4bf8-8c47-a514768da47b" />
 
-## Features
+---
 
-* Create, view, and delete workouts
-* Track workout title, reps, and load
-* JWT-based user authentication
-* Protected API routes
-* RESTful API with full CRUD functionality
-* MongoDB data persistence
-* Containerized frontend and backend services using Docker
-* Multi-container orchestration with Docker Compose
+## ✨ Features
 
-## Tech Stack
+- 🔐 Secure user authentication with JWT
+- 👤 User registration and login
+- 🏋️ Create, view, and delete workouts
+- 📊 Track workout title, load, and repetitions
+- 🔒 Protected frontend routes
+- 🌐 RESTful Express API
+- 💾 MongoDB database with Mongoose
+- ⚡ Fully built with TypeScript
+- 📱 Responsive and modern UI
 
-**Frontend:** React, React Router, CSS
+---
 
-**Backend:** Node.js, Express.js
+## 🛠️ Tech Stack
 
-**Database:** MongoDB, Mongoose
+### Frontend
+- React
+- TypeScript
+- React Router
+- Context API
+- Custom React Hooks
+- CSS
 
-**Authentication:** JWT, bcrypt
+### Backend
+- Node.js
+- Express.js
+- TypeScript
+- MongoDB
+- Mongoose
 
-**DevOps:** Docker, Docker Compose
+### Authentication
+- JSON Web Tokens (JWT)
+- bcrypt
 
-## Project Structure
+### Development Tools
+- TypeScript
+- Nodemon
+- ESLint
+
+---
+
+## 📂 Project Structure
 
 ```text
 FitTrack/
 ├── frontend/
-│   ├── src/
 │   ├── public/
-│   ├── Dockerfile
-│   └── package.json
+│   ├── src/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── hooks/
+│   │   ├── pages/
+│   │   ├── types/
+│   │   └── App.tsx
+│   ├── package.json
+│   └── tsconfig.json
 │
 ├── backend/
 │   ├── controllers/
 │   ├── middleware/
 │   ├── models/
 │   ├── routes/
-│   ├── Dockerfile
-│   ├── .env
-│   └── package.json
+│   ├── server.ts
+│   ├── package.json
+│   └── tsconfig.json
 │
-└── docker-compose.yml
+└── README.md
 ```
 
-## Getting Started
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-* Docker Desktop
-* Git
+- Node.js (v18+ recommended)
+- npm
+- MongoDB Atlas or a local MongoDB instance
+- Git
 
-### Installation
+---
 
-#### 1. Clone the repository
+## 📥 Installation
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Cffampo/FitTrack.git
 cd FitTrack
 ```
 
-#### 2. Create a `.env` file in the backend directory
+### 2. Install dependencies
 
-```env
-MONG_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-PORT=4000
-```
-
-#### 3. Build and start the application
+Frontend
 
 ```bash
-docker compose up --build
+cd frontend
+npm install
 ```
 
-Docker Compose will:
+Backend
 
-* Build the frontend container
-* Build the backend container
-* Create a shared network
-* Start both services
+```bash
+cd ../backend
+npm install
+```
 
-#### 4. Access the application
+---
 
-Frontend:
+### 3. Configure environment variables
+
+Create a `.env` file inside the **backend** folder.
+
+```env
+PORT=4000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
+
+---
+
+### 4. Start the backend
+
+```bash
+cd backend
+npm run dev
+```
+
+---
+
+### 5. Start the frontend
+
+Open another terminal.
+
+```bash
+cd frontend
+npm start
+```
+
+---
+
+## 🌐 Application URLs
+
+Frontend
 
 ```text
 http://localhost:3000
 ```
 
-Backend API:
+Backend API
 
 ```text
 http://localhost:4000
 ```
 
-## Docker Commands
+---
 
-### Start the application
+## 🔑 API Endpoints
 
-```bash
-docker compose up
-```
+### Authentication
 
-### Rebuild and start
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/user/signup` | Register a new user |
+| POST | `/api/user/login` | Authenticate a user |
 
-```bash
-docker compose up --build
-```
+### Workouts
 
-### Run in detached mode
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/workouts` | Get all workouts |
+| GET | `/api/workouts/:id` | Get a workout by ID |
+| POST | `/api/workouts` | Create a workout |
+| PATCH | `/api/workouts/:id` | Update a workout |
+| DELETE | `/api/workouts/:id` | Delete a workout |
 
-```bash
-docker compose up -d
-```
+---
 
-### Stop the application
+## 📸 Screenshots
 
-```bash
-docker compose down
-```
+### Home Page
 
-### View running containers
+<img width="2878" height="1373" alt="FitTrack Screenshot" src="https://github.com/user-attachments/assets/b516aed2-4e29-4bf8-8c47-a514768da47b" />
 
-```bash
-docker ps
-```
+---
 
-## Environment Variables
+## 🔒 Authentication
 
-The backend requires the following environment variables:
+FitTrack uses:
 
-| Variable   | Description                 |
-| ---------- | --------------------------- |
-| MONG_URI   | MongoDB connection string   |
-| JWT_SECRET | Secret used for JWT signing |
-| PORT       | Backend server port         |
+- JWT for authentication
+- Password hashing with bcrypt
+- Protected API routes
+- Local storage session persistence
+- React Context for authentication state
 
-## Future Improvements
+---
 
-* Workout analytics dashboard
-* Progress tracking charts
-* Exercise categories
-* Dockerized MongoDB service
-* CI/CD pipeline integration
-* Cloud deployment
+## 🎯 Future Improvements
 
-## Author
+- Edit existing workouts
+- Exercise categories
+- Workout history
+- Progress analytics
+- Charts and statistics
+- Dark mode
+- Profile management
+- Search and filtering
+- Pagination
+- Unit and integration testing
+- Docker support
+- Cloud deployment (Render/Vercel)
 
-Carl Campo
+---
 
-GitHub: https://github.com/Cffampo
+## 👨‍💻 Author
+
+**Carl Fampo**
+
+- GitHub: https://github.com/Cffampo
+- LinkedIn: www.linkedin.com/in/carl-fampo
